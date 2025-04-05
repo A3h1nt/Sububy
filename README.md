@@ -37,6 +37,7 @@ bundle install
 ```rb
 ruby Sububy.rb <domain> <cn> <wordlist> <output-dir>
 ```
+![alt text](/Image/example.png)
 
 ## Accessing Individual Modules
 
