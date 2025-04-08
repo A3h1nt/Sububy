@@ -134,12 +134,12 @@ class Sububy
 		recvd_args = ARGV
 		if recvd_args.count != 4
 			puts ""
-			puts "	Syntax : ruby sububy.rb <domain> <cn> <wordlist>"
+			puts "	Syntax : ruby sububy.rb <domain> <cn> <wordlist> <output-dir>"
 			puts ""
 			puts "	<domain>      : The target domain"
 			puts "	<cn> 	      : A common name for target"
 			puts "	<wordlist>    : Wordlist for bruteforcing subdomains"
-			puts "	<output-dir>  : Directory to output to"
+			puts "	<output-dir>  : Directory name to output to"
 			puts ""
 		else
 			$domain = recvd_args[0]
