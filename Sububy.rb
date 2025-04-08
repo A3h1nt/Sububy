@@ -10,8 +10,8 @@ require 'colorize'
 class Sububy
 
 	# Global variables to work with
-	$dnsdumpster_api_key = "API-KEY"
-	$virustotal_api_key = "API-KEY"
+	$dnsdumpster_api_key =	ENV['dnsd_api_key'] 
+	$virustotal_api_key = ENV['vt_api_key']
 	$temp_list = [] 
 	$live_host = []
 	$csp_list = []
@@ -127,9 +127,9 @@ class Sububy
 	end
 
 	def initialize
-		if $dnsdumpster_api_key.empty? | $virustotal_api_key.empty?
-			puts "Add API Keys."
-			exit
+		if $dnsdumpster_api_key.nil? | $virustotal_api_key.nil?
+			puts 'Configure API keys in dnsd_api_key & vt_api_key environment variables.'
+			return 1
 		end
 		recvd_args = ARGV
 		if recvd_args.count != 4
