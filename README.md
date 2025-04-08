@@ -22,7 +22,7 @@ Sububy comes with nine modules in total, out of these 9, five modules are for en
 1. Install the tool and gems
 
 ```bash
-git clone <>
+git clone https://github.com/A3h1nt/Sububy.git
 cd Sububy
 bundle install 
 ```
