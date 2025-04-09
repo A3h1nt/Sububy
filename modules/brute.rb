@@ -24,9 +24,10 @@ module Brute
 				end
 			end
 		end
+		brute_host = brute_host.uniq
 		Fileop.write('brute.txt',brute_host)
 		$temp_list = (brute_host+$temp_list).uniq
 		Fileop.append('temp.txt',$temp_list)
-		return $temp_list
+		return brute_host
 	end
 end
