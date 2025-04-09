@@ -42,6 +42,8 @@ class Sububy
 	include Sshot
 	require_relative 'modules/info.rb'
 	include Info
+	require_relative 'modules/webarchive.rb'
+	include WebArch
 
 	def output(operation)
 		case operation
@@ -95,23 +97,27 @@ class Sububy
 				puts "[-] Taking HTTPs screenshots ".colorize(:yellow)
 				Sshot.https('live_host.txt')
 				puts "[+] Done ".colorize(:green)
-				
+
+			when "webarch.get"
+				puts "[-] Fetching Data From WebArchive ".colorize(:yellow)
+				WebArch.get($domain)
+				puts "[+] "+"Identified Subdomains".colorize(:blue)+":"+"#{Fileop.read('webarchive.txt').count}".colorize(:green)	
 		end
 	end
 
 	def start
 		puts "\n\n"
-		puts  " ░▒▓███████▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓███████▓▒░  ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓███████▓▒░  ░▒▓█▓▒  ▒▓█▓▒░ ".colorize(:red)
-		puts  " ░▒▓█▓▒░       ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ".colorize(:green)
-		puts  " ░▒▓█▓▒░       ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ".colorize(:red)
-		puts  " ░▒▓██████▓▒░  ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓███████▓▒░  ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓███████▓▒░   ░▒▓██████▓▒░  ".colorize(:green)
-		puts  "       ░▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░    ░▒▓█▓▒░     ".colorize(:red)
-		puts  "       ░▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░    ░▒▓█▓▒░     ".colorize(:green)
-		puts  " ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓███████▓▒░   ░▒▓██████▓▒░  ░▒▓███████▓▒░     ░▒▓█▓▒░     ".colorize(:red)+"Author:".colorize(:white)+"@A3h1nt".colorize(:blue)
+		puts  " ░▒▓███████▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓███████▓▒░  ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓███████▓▒░  ░▒▓█▓▒  ▒▓█▓▒░ "
+		puts  " ░▒▓█▓▒░       ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ "
+		puts  " ░▒▓█▓▒░       ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ "
+		puts  " ░▒▓██████▓▒░  ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓███████▓▒░  ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓███████▓▒░   ░▒▓██████▓▒░  "
+		puts  "       ░▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░    ░▒▓█▓▒░     "
+		puts  "       ░▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░ ░▒▓█▓▒  ▒▓█▓▒░    ░▒▓█▓▒░     "
+		puts  " ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓███████▓▒░   ░▒▓██████▓▒░  ░▒▓███████▓▒░     ░▒▓█▓▒░     "+"Author:"+"@A3h1nt".colorize(:blue)
 		puts  "\n\n"
 
-
 		output "cert"
+		output "webarch.get"
 		output "brute"
 		output "dnsd"
 		output "vtotal"
@@ -122,8 +128,7 @@ class Sububy
 		output "csp.live"
 		output "http.shot"
 		output "https.shot"
-		Stat.get
-		
+		Stat.get		
 	end
 
 	def initialize
@@ -139,7 +144,7 @@ class Sububy
 			puts "	<domain>      : The target domain"
 			puts "	<cn> 	      : A common name for target"
 			puts "	<wordlist>    : Wordlist for bruteforcing subdomains"
-			puts "	<output-dir>  : Directory name to output to"
+			puts "	<output-dir>  : Directory to output to"
 			puts ""
 		else
 			$domain = recvd_args[0]
