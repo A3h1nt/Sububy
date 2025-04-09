@@ -14,9 +14,10 @@ module Dnsd
 		rescue => e
 			print "Some Error Occured : #{e}"
 		end	
+		$dnsd_host = $dnsd_host.uniq
 		Fileop.write('dnsd.txt',$dnsd_host)
 		$temp_list = ($temp_list+$dnsd_host).uniq
 		Fileop.append('temp.txt',$temp_list)
-		return $temp_list	
+		return $dnsd_host
 	end	
 end
