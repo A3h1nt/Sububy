@@ -14,9 +14,10 @@ module Cert
 		rescue => e
 			puts "Some error occured : #{e}"
 		end
+			cert_host = cert_host.uniq
 			Fileop.write('cert.txt',cert_host)
 			$temp_list = (cert_host+$temp_list).uniq
 			Fileop.append('temp.txt',$temp_list)
-			return $temp_list
+			return cert_host
 	end
 end
