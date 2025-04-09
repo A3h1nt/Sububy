@@ -4,7 +4,7 @@ Sububy is a one stop subdomain enumeration suite written in ruby, it focuses on 
 
 ![alt text](/Image/sub.png)
 
-Sububy comes with nine modules in total, out of these 9, five modules are for enumeration and the rest performs post enumeration operation.
+Sububy comes with nine modules in total, out of these 10, six modules are for enumeration and the rest performs post enumeration operation.
 
 | Category             | Module | Description                                                                                             |
 | -------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
@@ -12,6 +12,7 @@ Sububy comes with nine modules in total, out of these 9, five modules are for en
 |                      | Brute  | Bruteforce subdomains using the provided wordlist.                                                      |
 |                      | Dnsd   | Fetches subdomains from DnsDumpster (API key required : Free).                                          |
 |                      | Vtotal | Fetches subdomains from VirusTotal (API key required : Free).                                           |
+|                      | WebArch | Fetches subdomains from Internet Web Archive                                                           |
 |                      | Csp    | Fetches subdomains from the CSP of identified live domains.                                             |
 | **Post Enumeration** | Sort   | Sorts the identified subdomains for duplicates as well as host not belonging to the target domain name. |
 |                      | Live   | Identifies the subdomain with active running webserver.                                                 |
@@ -57,6 +58,7 @@ Cert.get(domain) #-> cert.txt
 Brute.bruteforce(domain,wordlist) #-> brute.txt
 Dnsd.getsub(domain) #-> dnsd.txt
 Vtotal.getsub(domain) #-> vtotal.txt
+WebArch.get(domain) #-> webarchive.txt
 ```
 ### 2. Sorting Module
 
