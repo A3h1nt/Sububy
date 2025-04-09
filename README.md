@@ -2,7 +2,7 @@
 
 Sububy is a one stop subdomain enumeration suite written in ruby, it focuses on accuracy and quality with the flexibility of accessing some modules individually without having to stick with the tool execution flow, allowing you to integrate it with your work flow.
 
-![alt text](/Image/sub.png)
+![alt text](/Image/slogo.png)
 
 Sububy comes with nine modules in total, out of these 10, six modules are for enumeration and the rest performs post enumeration operation.
 
